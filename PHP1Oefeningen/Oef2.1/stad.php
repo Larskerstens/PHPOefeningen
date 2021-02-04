@@ -32,7 +32,7 @@ print $head;
             echo '<h4>'.'Location: '.$location.'</h4>';
             echo '<h5>'.'Place: '.$row["img_location"].'</h5>';
             echo '<figure><div class="img-hover-zoom img-hover-zoom--brightness stad"><img class="stad" src="' . $link_image . '"></div>
-            <figcaption><p><a class="info" href="./steden2.php"><- Terug naar het overzicht</a></p></figcaption></figure></div>';
+            <figcaption><p><a class="info" href="./steden.php"><- Terug naar het overzicht</a></p></figcaption></figure></div>';
         }
         ?>
     </div>
