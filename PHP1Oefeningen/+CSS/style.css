@@ -1,0 +1,175 @@
+/* Studenten oefening */
+body#student {padding: 2rem;}
+table td {padding: 2rem;}
+table tr:nth-child(odd) {background-color: #F1F1F1;}
+table tr:nth-child(even) {background-color: #fefefe;}
+
+/* steden oefening */
+body {
+    font-family: Raleway;
+    background-color: #fafafa;
+}
+.jumbotron {
+    color: #1f2832;
+    transition: all 1.5s ease-in-out;
+    box-shadow: 4px 8px 8px rgba(68,68,68,0.21) inset;
+    margin-bottom: 0 !important;
+}
+.jumbotron:hover {
+    color: #543d2c;
+}
+.navbar {
+    margin-bottom: 2rem !important;
+    background-color: #a53333 !important;
+}
+.search {
+    margin-left: 600px;
+    margin-right: 500px;
+}
+h1 {
+    font-size: 60px;
+    font-weight: 700;
+}
+h2 {
+    font-weight: 100;
+    position: relative;
+}
+h2:before {
+    content : "";
+    position: absolute;
+    left    : 50%;
+    margin-left: -80px;
+    bottom  : -20px;
+    width   : 160px;  /* or 100px */
+    border-bottom: 1px solid #1f2832;
+    transition: border-bottom .00001s ease-in-out, width 1s ease-in-out, margin-left 1s ease-in-out;
+}
+.jumbotron:hover h2:before {
+    color: #543d2c;
+    margin-left: -150px;
+    width   : 300px;  /* or 100px */
+    border-bottom: 2px solid #543d2c;
+}
+.csrftoken {display: none !important;}
+h3 {
+    font-size: 32px !important;
+    font-weight: 500;
+    color: #1f2832;
+    transition: all 1.5s ease-in-out;
+}
+.registerfrom .col-sm-4 {margin-bottom: 0;}
+.col-sm-4 {
+    margin-bottom: 60px;
+    text-align: center;
+    color: #1f2832;
+    transition: all .5s ease-in-out;
+    padding: 1em;
+}
+.col-sm-12 {
+    margin-bottom: 50px;
+    color: #1f2832;
+    transition: all 1.5s ease-in-out;
+}
+p {
+    font-size: 16px;
+    font-weight: 100;
+    margin: 10px 0px;
+}
+.col-sm-4:hover {
+    transform: scale(1.015);
+    box-shadow: 0px 8px 9px -3px rgba(68,68,68,0.61);
+    background-color: rgb(245,245,245);
+    border-radius: 10px;
+}
+.col-sm-4:hover, .col-sm-12:hover {
+    color: #749ca1;
+}
+.col-sm-4:hover h3, .col-sm-12:hover h3 {color: #a53333;}
+.info {
+    color: #1f2832;
+    transition: all .4s ease-in-out;
+}
+.alert-danger {
+    left: 320px !important;
+    margin-top: 30px !important;
+}
+.info:hover {
+    text-decoration: none;
+    color: #a53333;
+}
+.form-control-plaintext {
+    border: 1px solid #aaa;
+    background: #f6f6f6;
+    border-radius: 3px;
+    padding: 3px 10px;
+    width: 300px;
+}
+.first {
+    border: none;
+    background-color: #fafafa;
+}
+.form {
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+img {
+    height: 100%;
+}
+
+/* [1] The container */
+.img-hover-zoom {
+    height: 300px; /* [1.1] Set it as per your need */
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+    border-radius: 10px;
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+    transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+    transform: scale(1.5);
+}
+
+.img-hover-zoom--colorize img {
+    transition: transform 1.5s, filter 2s ease-in-out;
+    filter: grayscale(100%);
+}
+
+/* The Transformation */
+.img-hover-zoom--colorize:hover img {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+/*stad img*/
+img.stad {
+    height: 100%;
+    width: 100%;
+}
+div.stad {
+    height: 100%;
+}
+/* Brightness-zoom Container */
+.img-hover-zoom--brightness img {
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(50%);
+}
+
+/* The Transformation */
+.img-hover-zoom--brightness:hover img {
+    filter: brightness(100%);
+    transform: scale(1.3);
+}
+
+
