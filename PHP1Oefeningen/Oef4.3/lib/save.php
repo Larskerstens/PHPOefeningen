@@ -32,8 +32,20 @@ function SaveFormData()
         $sending_form_uri = $_SERVER['HTTP_REFERER'];
         CompareWithDatabase( $table, $pkey );
 
+        //Validaties voor het registratieformulier
+        if ( $table == "user" )
+        {
+            ValidateUsrPassword( $_POST['usr_password'] );
+            ValidateUsrEmail( $_POST['usr_email'] );
+            CheckUniqueUsrEmail( $_POST['usr_email'] );
+        }
+
         //terugkeren naar afzender als er een fout is
-        if ( count($_SESSION['errors']) > 0 ) { header( "Location: " . $sending_form_uri ); exit(); }
+        if ( count($_SESSION['errors']) > 0 )
+        {
+            $_SESSION['OLD_POST'] = $_POST;
+            header( "Location: " . $sending_form_uri ); exit();
+        }
 
         //insert or update?
         if ( $_POST["$pkey"] > 0 ) $update = true;
@@ -57,8 +69,18 @@ function SaveFormData()
                 continue;
             }
 
-            //all other data-fields
-            $keys_values[] = " $field = '$value' " ;
+            if ( $field == "usr_password" ) //encrypt usr_password
+            {
+                $value = password_hash( $value, PASSWORD_BCRYPT );
+                $keys_values[] = " $field = '$value' " ;
+
+                $_SESSION['msgs'][] = "Bedankt voor uw registratie";
+            }
+            else //all other data-fields
+            {
+                $keys_values[] = " $field = '$value' " ;
+            }
+
         }
 
         $str_keys_values = implode(" , ", $keys_values );

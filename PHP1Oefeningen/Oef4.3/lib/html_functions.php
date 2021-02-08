@@ -1,6 +1,4 @@
 <?php
-require_once "autoload.php";
-
 function PrintHead()
 {
     $head = file_get_contents("templates/head.html");
@@ -38,6 +36,11 @@ function MergeViewWithData( $template, $data )
         }
 
         $returnvalue .= $output;
+    }
+
+    if ( $data == [] )
+    {
+        $returnvalue = $template;
     }
 
     return $returnvalue;
