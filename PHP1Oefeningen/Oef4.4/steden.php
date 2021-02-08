@@ -12,6 +12,11 @@ PrintNavbar();
 <div class="container">
     <div class="row">
         <?php
+        //toon messages als er zijn
+        foreach ( $msgs as $msg )
+        {
+            print '<h1 class="alert alert-success msgs" role="alert">' . $msg . '</h1>';
+        }
 
         //get data
         $rows = GetData( "select * from images" );

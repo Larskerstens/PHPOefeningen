@@ -1,15 +1,22 @@
 <?php
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
+
+$public_access = true;
 require_once "autoload.php";
 
-if ( LoginCheck() )
+$user = LoginCheck();
+
+if ( $user )
 {
-    print "INLOGGEN GELUKT";
+    $_SESSION['user'] = $user;
+    $_SESSION['msgs'][] = "Welkom, " . $_SESSION['user']['usr_voornaam'];
+    header("Location: ../steden.php");
 }
 else
 {
-    print "HELAAS!";
+    unset( $_SESSION['user'] );
+    GoToNoAccess();
 }
 
 function LoginCheck()
@@ -60,10 +67,10 @@ function LoginCheck()
         {
             foreach ( $data as $row )
             {
-                if ( password_verify( $ww, $row['usr_password'] ) ) return true;
+                if ( password_verify( $ww, $row['usr_password'] ) ) return $row;
             }
         }
 
-        return false;
+        return null;
     }
 }
