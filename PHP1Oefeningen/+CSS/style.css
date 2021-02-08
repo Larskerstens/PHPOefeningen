@@ -81,6 +81,9 @@ p {
     background-color: rgb(245,245,245);
     border-radius: 10px;
 }
+.col-form-label {
+    margin-bottom: 0px;
+}
 .col-sm-4:hover, .col-sm-12:hover {
     color: #749ca1;
 }
@@ -109,9 +112,12 @@ p {
     background-color: #fafafa;
 }
 .form {
-    text-align: right;
+    text-align: left;
+    margin-top: 20px;
 }
-
+.back {
+    padding: 1rem 0 2rem 23rem;
+}
 
 
 
