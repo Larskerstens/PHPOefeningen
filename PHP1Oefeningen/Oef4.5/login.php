@@ -14,22 +14,25 @@ PrintNavbar();
     <div class="row">
 
         <?php
-            //get data
-            $data = [ 0 => [ "usr_email" => "", "usr_password" => "" ]];
+        if ( isset($_GET['logout']) AND $_GET['logout'] == "true" )
+        {
+            print '<div class="alert alert-success msgs">U bent uitgelogd.</div>';
+        }
 
-            //get template
-            $output = file_get_contents("templates/login.html");
+        //get data
+        $data = [ 0 => [ "usr_email" => "", "usr_password" => "" ]];
 
-            //add extra elements
-            $extra_elements['csrf_token'] = GenerateCSRF( "login.php"  );
+        //get template
+        $output = file_get_contents("templates/login.html");
 
-            //merge
-            $output = MergeViewWithData( $output, $data );
-            $output = MergeViewWithExtraElements( $output, $extra_elements );
-            //$output = MergeViewWithErrors( $output, $errors );
-            //$output = RemoveEmptyErrorTags( $output, $data );
+        //add extra elements
+        $extra_elements['csrf_token'] = GenerateCSRF( "login.php"  );
 
-            print $output;
+        //merge
+        $output = MergeViewWithData( $output, $data );
+        $output = MergeViewWithExtraElements( $output, $extra_elements );
+
+        print $output;
         ?>
 
     </div>

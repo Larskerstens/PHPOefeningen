@@ -6,7 +6,7 @@ $public_access = true;
 require_once "lib/autoload.php";
 
 PrintHead();
-PrintJumbo("Register","-><-");
+PrintJumbo( $title = "Registreer", $subtitle = "" );
 PrintNavbar();
 ?>
 
@@ -14,33 +14,32 @@ PrintNavbar();
     <div class="row">
 
         <?php
-            //get data
+        //get data
+        if ( count($old_post) > 0 )
+        {
+            $data = [ 0 => [
+                "usr_voornaam" => $old_post['usr_voornaam'],
+                "usr_naam" => $old_post['usr_naam'],
+                "usr_email" => $old_post['usr_email'],
+                "usr_password" => $old_post['usr_password']
+            ]
+            ];
+        }
+        else $data = [ 0 => [ "usr_voornaam" => "", "usr_naam" => "", "usr_email" => "", "usr_password" => "" ]];
 
-            if ( count($old_post) > 0 )
-            {
-                $data = [ 0 => [
-                                             "usr_voornaam" => $old_post['usr_voornaam'],
-                                             "usr_naam" => $old_post['usr_naam'],
-                                             "usr_email" => $old_post['usr_email'],
-                                             "usr_password" => $old_post['usr_password']
-                                           ]
-                              ];
-            }
-            else $data = [ 0 => [ "usr_voornaam" => "", "usr_naam" => "", "usr_email" => "", "usr_password" => "" ]];
+        //get template
+        $output = file_get_contents("templates/register.html");
 
-            //get template
-            $output = file_get_contents("templates/register.html");
+        //add extra elements
+        $extra_elements['csrf_token'] = GenerateCSRF( "register.php"  );
 
-            //add extra elements
-            $extra_elements['csrf_token'] = GenerateCSRF( "register.php"  );
+        //merge
+        $output = MergeViewWithData( $output, $data );
+        $output = MergeViewWithExtraElements( $output, $extra_elements );
+        $output = MergeViewWithErrors( $output, $errors );
+        $output = RemoveEmptyErrorTags( $output, $data );
 
-            //merge
-            $output = MergeViewWithData( $output, $data );
-            $output = MergeViewWithExtraElements( $output, $extra_elements );
-            $output = MergeViewWithErrors( $output, $errors );
-            $output = RemoveEmptyErrorTags( $output, $data );
-
-            print $output;
+        print $output;
         ?>
 
     </div>
