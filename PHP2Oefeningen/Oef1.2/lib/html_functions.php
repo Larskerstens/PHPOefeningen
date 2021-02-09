@@ -1,4 +1,5 @@
 <?php
+require_once 'autoload.php';
 function PrintHead()
 {
     $head = file_get_contents("templates/head.html");
@@ -15,13 +16,13 @@ function PrintJumbo( $title = "", $subtitle = "" )
     print $jumbo;
 }
 
-function PrintNavbar( )
+function PrintNavbar($user)
 {
     $navbar = file_get_contents("templates/navbar.html");
 
     if ( isset($_SESSION['user']))
     {
-        $username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
+        $username = $_SESSION['user'][getVoornaam()] . " " . $_SESSION['user'][getNaam()];
     }
     else
     {

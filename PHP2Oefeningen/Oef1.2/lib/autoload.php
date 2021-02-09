@@ -1,4 +1,7 @@
 <?php
+
+include '../models/city.php';
+include '../models/user.php';
 session_start();
 
 //print json_encode($_SERVER); exit;
