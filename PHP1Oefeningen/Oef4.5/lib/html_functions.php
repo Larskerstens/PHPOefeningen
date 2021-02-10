@@ -19,8 +19,8 @@ function PrintNavbar( )
 {
     $navbar = file_get_contents("templates/navbar.html");
 
-    $username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
-    $navbar = str_replace("@username@", $username, $navbar );
+    //$username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
+    //$navbar = str_replace("@username@", $username, $navbar );
 
     print $navbar;
 }
