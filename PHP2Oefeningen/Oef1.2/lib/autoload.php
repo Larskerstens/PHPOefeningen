@@ -16,8 +16,8 @@ require_once "routing.php";
 require_once "strings.php";
 
 //models
-require_once $_SERVER['DOCUMENT_ROOT'] . $app_root . "./models/city.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . $app_root . "./models/user.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.2/models/city.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.2/models/user.php";
 
 session_start();
 //access control

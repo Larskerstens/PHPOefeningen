@@ -14,22 +14,35 @@ PrintNavbar();
     <div class="row">
 
         <?php
-            //get data
-            $data = GetData( "select * from user where usr_id=" . $_SESSION['user']['usr_id'] );
+        //get data
+        //$data = GetData( "select * from user where usr_id=" . $_SESSION['user']['usr_id'] );
+        $data = GetData( "select * from user where usr_id=" . $_SESSION['user']->getId() );
 
-            //get template
-            $output = file_get_contents("templates/profiel.html");
+        /*
+        $user = $_SESSION['user'];
+        $data = [];
+        $data[0] = [
+                "usr_id" => $user->getId(),
+                "usr_voornaam" => $user->getVoornaam(),
+                "usr_naam" => $user->getNaam(),
+                "usr_email" => $user->getEmail(),
+                "usr_telefoon" => $user->getTelefoon(),
+            ];
+        */
 
-            //add extra elements
-            $extra_elements['csrf_token'] = GenerateCSRF( "profiel.php"  );
+        //get template
+        $output = file_get_contents("templates/profiel.html");
 
-            //merge
-            $output = MergeViewWithData( $output, $data );
-            $output = MergeViewWithExtraElements( $output, $extra_elements );
-            $output = MergeViewWithErrors( $output, $errors );
-            $output = RemoveEmptyErrorTags( $output, $data );
+        //add extra elements
+        $extra_elements['csrf_token'] = GenerateCSRF( "profiel.php"  );
 
-            print $output;
+        //merge
+        $output = MergeViewWithData( $output, $data );
+        $output = MergeViewWithExtraElements( $output, $extra_elements );
+        $output = MergeViewWithErrors( $output, $errors );
+        $output = RemoveEmptyErrorTags( $output, $data );
+
+        print $output;
         ?>
 
     </div>

@@ -12,7 +12,7 @@ function GoHome()
 {
     global $app_root;
 
-    header("Location: " . $app_root . "/steden.php");
+    header("Location: " . $app_root . "/Oef1.2/steden.php");
     exit;
 }
 
