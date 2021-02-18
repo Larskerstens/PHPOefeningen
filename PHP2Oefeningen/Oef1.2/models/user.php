@@ -1,30 +1,43 @@
 <?php
 
-class user
+class User
 {
     private $id;
-    private $usr_voornaam;
-    private $usr_naam;
-    private $usr_mail;
+    private $voornaam;
+    private $naam;
+    private $email;
+    private $telefoon;
 
-    public function getId(): int
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
 
-    public function setId(int $id): void
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
     {
         $this->id = $id;
     }
 
-    public function getVoornaam(): string
+    /**
+     * @return mixed
+     */
+    public function getVoornaam()
     {
-        return $this->usr_voornaam;
+        return strtoupper( $this->voornaam );
     }
 
-    public function setVoornaam($usr_voornaam): void
+    /**
+     * @param mixed $voornaam
+     */
+    public function setVoornaam($voornaam): void
     {
-        $this->usr_voornaam = strtoupper($usr_voornaam);
+        $this->voornaam = $voornaam;
     }
 
     /**
@@ -32,55 +45,48 @@ class user
      */
     public function getNaam()
     {
-        return strtoupper($this->usr_naam);
+        return strtoupper( $this->naam );
     }
 
     /**
-     * @param mixed $usr_naam
+     * @param mixed $naam
      */
-    public function setNaam($usr_naam): void
+    public function setNaam($naam): void
     {
-        $this->usr_naam = strtoupper($usr_naam);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMail()
-    {
-        return $this->usr_mail;
-    }
-
-    /**
-     * @param mixed $usr_mail
-     */
-    public function setMail($usr_mail): void
-    {
-        $this->usr_mail = $usr_mail;
+        $this->naam = $naam;
     }
 
     /**
      * @return mixed
      */
-
-    public function toArray(): array
+    public function getEmail()
     {
-        return [
-            "id" => $this->getId(),
-            "voornaam" => $this->getVoornaam(),
-            "naam" => $this->getNaam(),
-            "mail" => $this->getMail(),
-        ];
+        return $this->email;
     }
 
-    public function toArray2(): array
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
     {
-        $retarr = [];
-
-        foreach ($this as $key => $value) {
-            $retarr[$key] = $value;
-        }
-        return $retarr;
+        $this->email = $email;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTelefoon()
+    {
+        return $this->telefoon;
+    }
+
+    /**
+     * @param mixed $telefoon
+     */
+    public function setTelefoon($telefoon): void
+    {
+        $this->telefoon = $telefoon;
+    }
+
 
 }

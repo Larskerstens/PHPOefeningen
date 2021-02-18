@@ -16,8 +16,8 @@ require_once "routing.php";
 require_once "strings.php";
 
 //model classes
-require_once $_SERVER['DOCUMENT_ROOT'] . "/php2/02_start/models/Fruit.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/php2/02_start/models/Aardbei.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/+Start2/models/Fruit.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/+Start2/models/Aardbei.php";
 
 //services
 

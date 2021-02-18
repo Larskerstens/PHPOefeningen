@@ -2,7 +2,7 @@
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
 
-$public_access = false;
+$public_access = true;
 require_once "lib/autoload.php";
 
 PrintHead();
@@ -29,7 +29,7 @@ PrintNavbar();
     $output .= "en ook een " . $kiwi->getName() . "<br>";
     $output .= "en ook een " . $aardbei1->getName() . " en die is " . $aardbei1->getSmaak() . "<br>";
 
-    if ( $kiwi instanceof Fruit ) print "De kiwi is wel degelijk een stuk fruit, en geen vogel";
+    if ( $kiwi instanceof Fruit ) print "De kiwi is wel degelijk een stuk fruit, en geen vogel<br>";
 
     //lijst (array) van objecten
     $mijn_stukken_fruit = [ $ananas, $kiwi, $kiwi_1, $aardbei1 ];
