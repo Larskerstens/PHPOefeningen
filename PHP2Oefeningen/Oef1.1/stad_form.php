@@ -6,6 +6,7 @@ require_once "lib/autoload.php";
 
 PrintHead();
 PrintJumbo( $title = "Bewerk afbeelding", $subtitle = "" );
+PrintNavbar();
 ?>
 
 <div class="container">

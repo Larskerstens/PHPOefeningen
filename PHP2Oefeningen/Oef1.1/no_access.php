@@ -7,13 +7,14 @@ require_once "lib/autoload.php";
 
 PrintHead();
 PrintJumbo( $title = "Geen toegang" );
+PrintNavbar();
 ?>
 
 <div class="container">
     <div class="row">
 
 <?php
-    print "<div class='msgs'>U hebt helaas geen toegang! Probeer eventueel <a href=index.php>in te loggen</a></div>";
+    print "<div class='alert alert-danger'>U hebt helaas geen toegang! Probeer eventueel <a href=index.php>in te loggen</a></div>";
 ?>
 
     </div>

@@ -6,6 +6,7 @@ require_once "lib/autoload.php";
 
 PrintHead();
 PrintJumbo( $title = "Stad OO style");
+PrintNavbar();
 ?>
 
 <div class="container">

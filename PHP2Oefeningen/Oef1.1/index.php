@@ -7,6 +7,7 @@ require_once "lib/autoload.php";
 
 PrintHead();
 PrintJumbo( $title = "Login", $subtitle = "" );
+PrintNavbar();
 ?>
 
 <div class="container">
