@@ -15,7 +15,7 @@ function GoToNoAccess()
 {
     global $app_root;
 
-    header("Location: " . $app_root . "/Oef4.5/no_access.php");
+    header("Location: " . $app_root . "/Oef5.0/no_access.php");
     exit;
 }
 
