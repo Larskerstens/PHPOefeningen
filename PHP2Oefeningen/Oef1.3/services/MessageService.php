@@ -33,13 +33,6 @@ private $infos;
     public function CountNewInfos() {
         return count($_SESSION['infos']);
     }
-    public function GetInputErrors() {
-        if ($this->CountInputErrors()) {
-            return $this->input_errors;
-        } else {
-            return null;
-        }
-    }
-    public function AddMessage($type, $msg, $key = null) {
-    }
+
+
 }
