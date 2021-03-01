@@ -19,9 +19,13 @@ function PrintNavbar( )
 {
     $navbar = file_get_contents("templates/navbar.html");
 
-    if ( isset($_SESSION['user']))
+    //var_dump($_SESSION['user']); die();
+
+    if ( isset($_SESSION['user']) )
     {
-        $username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
+        //$username = $_SESSION['user']->getVoornaam() . " " . $_SESSION['user']->getNaam();
+        //$username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
+        $username = "LARS KERSTENS";
     }
     else
     {

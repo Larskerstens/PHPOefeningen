@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 //print json_encode($_SERVER); exit;
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
@@ -16,12 +15,15 @@ require_once "routing.php";
 require_once "strings.php";
 
 //model classes
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.1/models/Fruit.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.1/models/Aardbei.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.2/models/Fruit.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.2/models/Aardbei.php";
 
 //services
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.1/models/city.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.2/models/city.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.2/models/User.php";
+
+session_start();
 
 require_once "access_control.php";
 
