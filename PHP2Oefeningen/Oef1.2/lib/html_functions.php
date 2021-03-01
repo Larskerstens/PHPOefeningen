@@ -25,7 +25,7 @@ function PrintNavbar( )
     {
         //$username = $_SESSION['user']->getVoornaam() . " " . $_SESSION['user']->getNaam();
         //$username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
-        $username = "LARS KERSTENS";
+        $username = "LARS KERSTENS" ;
     }
     else
     {
