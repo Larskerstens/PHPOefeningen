@@ -77,7 +77,6 @@ function LoginCheck()
                     $user->setVoornaam( $row['usr_voornaam'] );
                     $user->setNaam( $row['usr_naam'] );
                     $user->setEmail( $row['usr_email'] );
-                    $user->setTelefoon( $row['usr_telefoon'] );
 
                     return $user;
                 }
