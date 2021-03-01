@@ -21,15 +21,14 @@ function PrintNavbar( )
 
     if ( isset($_SESSION['user']))
     {
-        //$username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
-        $username = $_SESSION['user']->getVoornaam() . " " . $_SESSION['user']->getNaam();
+        $username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
     }
     else
     {
         $username = "Niet ingelogd";
     }
 
-    $navbar = str_replace("@username@", strtoupper( $username), $navbar );
+    $navbar = str_replace("@username@", $username, $navbar );
 
     print $navbar;
 }

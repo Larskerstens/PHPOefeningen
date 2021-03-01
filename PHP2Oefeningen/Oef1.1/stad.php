@@ -29,9 +29,9 @@ PrintNavbar();
             $city->setTitle( $row['img_title'] );
             $city->setWidth( $row['img_width'] );
             $city->setHeight( $row['img_height'] );
-            $city->setPublished( $row['img_published'] );
+            //$city->setPublished( $row['img_published'] );
             $city->setLanId( $row['img_lan_id'] );
-            $city->setDate( $row['img_date'] );
+            //$city->setDate( $row['img_date'] );
 
             //get template
             $template = file_get_contents("templates/column_full.html");

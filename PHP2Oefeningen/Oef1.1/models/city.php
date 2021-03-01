@@ -7,9 +7,9 @@ class city
     private $title;
     private $width;
     private $height;
-    private $published;
+    //private $published;
     private $lan_id;
-    private $date;
+   // private $date;
 
     public function getId(): int
     {
@@ -79,21 +79,17 @@ class city
         $this->height = $height;
     }
 
-    /**
-     * @return mixed
-     */
+    /*
     public function getPublished()
     {
         return $this->published;
     }
 
-    /**
-     * @param mixed $published
-     */
+
     public function setPublished($published): void
     {
         $this->published = $published;
-    }
+    }*/
 
     /**
      * @return mixed
@@ -111,22 +107,18 @@ class city
         $this->lan_id = $lan_id;
     }
 
-    /**
-     * @return mixed
-     */
+ /*
     public function getDate()
     {
         return $this->date;
     }
 
-    /**
-     * @param mixed $date
-     */
+
     public function setDate($date): void
     {
         $this->date = $date;
     }
-
+*/
     public function toArray(): array
     {
         return [
@@ -135,9 +127,9 @@ class city
             "title" => $this->getTitle(),
             "width" => $this->getWidth(),
             "height" => $this->getHeight(),
-            "published" => $this->getPublished(),
+            //"published" => $this->getPublished(),
             "lan_id" => $this->getLanId(),
-            "date" => $this->getDate()
+           // "date" => $this->getDate()
         ];
     }
 

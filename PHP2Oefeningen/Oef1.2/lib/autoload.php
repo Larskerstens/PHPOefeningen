@@ -1,10 +1,11 @@
 <?php
+session_start();
 
 //print json_encode($_SERVER); exit;
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
 $app_root = "/" . $request_uri[1] . "/" . $request_uri[2];
 
-require_once "connect.php";
+require_once "connection_data.php";
 require_once "pdo.php";
 require_once "html_functions.php";
 require_once "form_elements.php";
@@ -14,13 +15,14 @@ require_once "security.php";
 require_once "routing.php";
 require_once "strings.php";
 
-//models
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.2/models/city.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.2/models/user.php";
+//model classes
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.1/models/Fruit.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.1/models/Aardbei.php";
 
-session_start();
+//services
 
-//access control
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.1/models/city.php";
+
 require_once "access_control.php";
 
 //initialize $errors array
