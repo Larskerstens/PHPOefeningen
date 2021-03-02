@@ -5,20 +5,20 @@ ini_set( 'display_errors', 1 );
 $public_access=true;
 require_once "autoload.php";
 
-SaveFormData();
+SaveFormData( $container->getMessageService(),
+    $container->getDBManager(),
+    $container->getValidator(),
+    $app_root
+);
 
-function SaveFormData()
+function SaveFormData( MessageService $ms, DBManager $dbm, Validator $val, $app_root )
 {
-    global $app_root;
-    global $ms;
-    global $dbm;
-
     if ( $_SERVER['REQUEST_METHOD'] == "POST" )
     {
         if ( ! isset( $_POST['btnOpslaan'] ) )
         {
-            if ( isset($_POST['aftercancel'] )) { GoToPage($_POST['aftercancel']); exit; }
-            else { GoHome(); exit; }
+            if ( isset($_POST['aftercancel'] )) { GoToPage( $app_root, $_POST['aftercancel'] ); exit; }
+            else { GoHome( $app_root ); exit; }
         }
 
         //controle CSRF token
@@ -43,18 +43,18 @@ function SaveFormData()
 
         //validation
         $sending_form_uri = $_SERVER['HTTP_REFERER'];
-        CompareWithDatabase( $table, $pkey );
+        $val->CompareWithDatabase( $table, $pkey );
 
         //Validaties voor het registratieformulier
         if ( $formname == "register" )
         {
-            ValidateUsrPassword( $_POST['usr_password'] );
-            CheckUniqueUsrEmail( $_POST['usr_email'] );
+            $val->ValidateUsrPassword( $_POST['usr_password'] );
+            $val->CheckUniqueUsrEmail( $_POST['usr_email'] );
         }
 
         if ( $formname == "profiel" OR $formname == "register" )
         {
-            ValidateUsrEmail( $_POST['usr_email'] );
+            $val->ValidateUsrEmail( $_POST['usr_email'] );
         }
 
         //terugkeren naar afzender als er een fout is

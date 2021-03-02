@@ -16,7 +16,7 @@ PrintNavbar();
             if ( ! is_numeric( $_GET['img_id']) ) die("Ongeldig argument " . $_GET['img_id'] . " opgegeven");
 
             //get data
-        $data = $dbm->GetData( "select * from images where img_id=" . $_GET['img_id'] );
+        $data = $container->getDBManager()->GetData( "select * from images where img_id=" . $_GET['img_id'] );
         $row = $data[0]; //there's only 1 row in data
 
         //add extra elements
@@ -32,8 +32,8 @@ PrintNavbar();
             //merge
             $output = MergeViewWithData( $output, $data );
             $output = MergeViewWithExtraElements( $output, $extra_elements );
-            $output = MergeViewWithErrors( $output, $ms->GetInputErrors() );
-            $output = RemoveEmptyErrorTags( $output, $data );
+        $output = MergeViewWithErrors( $output, $container->getMessageService()->GetInputErrors() );
+        $output = RemoveEmptyErrorTags( $output, $data );
 
             print $output;
         ?>

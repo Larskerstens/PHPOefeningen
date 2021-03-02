@@ -14,12 +14,12 @@ PrintNavbar();
     <div class="row">
 
 <?php
-    //toon messages als er zijn
-    $ms->ShowErrors();
-    $ms->ShowInfos();
+//toon messages als er zijn
+$container->getMessageService()->ShowErrors();
+$container->getMessageService()->ShowInfos();
 
 //get data
-$data = $dbm->GetData( "select * from images" );
+$data = $container->getDBManager()->GetData( "select * from images" );
 
 //get template
     $template = file_get_contents("templates/column.html");

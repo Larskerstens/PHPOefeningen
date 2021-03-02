@@ -5,4 +5,4 @@ ini_set('display_errors', 1);
 $public_access = true;
 require_once "lib/autoload.php";
 
-print str_replace("\r\n", "<br>", $logger->ShowLog());
+print str_replace("\r\n", "<br>", $container->getLogger()->ShowLog());

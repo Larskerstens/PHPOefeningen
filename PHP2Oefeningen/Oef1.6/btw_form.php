@@ -14,22 +14,22 @@ PrintNavbar();
     <div class="row">
 
         <?php
-            //get data
-        $data = $dbm->GetData( "select * from eu_btw_codes where eub_id=" . $_GET['eub_id'] );
+        //get data
+        $data = $container->getDBManager()->GetData( "select * from eu_btw_codes where eub_id=" . $_GET['eub_id'] );
 
-            //get template
-            $output = file_get_contents("templates/btw_form.html");
+        //get template
+        $output = file_get_contents("templates/btw_form.html");
 
-            //add extra elements
-            $extra_elements['csrf_token'] = GenerateCSRF( "btw_form.php"  );
+        //add extra elements
+        $extra_elements['csrf_token'] = GenerateCSRF( "btw_form.php"  );
 
-            //merge
-            $output = MergeViewWithData( $output, $data );
-            $output = MergeViewWithExtraElements( $output, $extra_elements );
-        $output = MergeViewWithErrors( $output, $ms->GetInputErrors() );
-            $output = RemoveEmptyErrorTags( $output, $data );
+        //merge
+        $output = MergeViewWithData( $output, $data );
+        $output = MergeViewWithExtraElements( $output, $extra_elements );
+        $output = MergeViewWithErrors( $output, $container->getMessageService()->GetInputErrors() );
+        $output = RemoveEmptyErrorTags( $output, $data );
 
-            print $output;
+        print $output;
         ?>
 
     </div>
