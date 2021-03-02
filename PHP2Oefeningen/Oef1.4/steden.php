@@ -18,10 +18,10 @@ PrintNavbar();
     $ms->ShowErrors();
     $ms->ShowInfos();
 
-    //get data
-    $data = GetData( "select * from images" );
+//get data
+$data = $dbm->GetData( "select * from images" );
 
-    //get template
+//get template
     $template = file_get_contents("templates/column.html");
 
     //merge
