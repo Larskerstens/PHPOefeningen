@@ -15,15 +15,16 @@ require_once "routing.php";
 require_once "strings.php";
 
 //model classes
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.4/models/Fruit.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.4/models/Aardbei.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.5/models/Fruit.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.5/models/Aardbei.php";
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.4/models/city.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.4/models/User.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.5/models/city.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.5/models/User.php";
 
 //services
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.4/services/MessageService.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.4/services/DBManager.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.5/services/MessageService.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.5/services/DBManager.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/PHP2Oefeningen/Oef1.5/services/Logger.php";
 
 session_start();
 
@@ -31,7 +32,8 @@ require_once "access_control.php";
 
 //initialze MessageService
 $ms = new MessageService();
-$dbm = new DBManager();
+$logger = new Logger();
+$dbm = new DBManager( $logger );
 
 //initialize $old_post
 $old_post = [];

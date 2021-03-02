@@ -1,6 +1,12 @@
 <?php
 class DBManager
 {
+    private $logger;
+
+    public function __construct(Logger $logger)
+    {
+        $this->logger = $logger;
+    }
 
     function CreateConnection()
     {
@@ -28,6 +34,7 @@ class DBManager
         $this->CreateConnection();
 
         //define and execute query
+        $this->logger->Log(date("Y-m-d H:i:s: ") . $sql );
         $result = $conn->query($sql);
 
         //show result (if there is any)
@@ -51,6 +58,7 @@ class DBManager
         $this->CreateConnection();
 
         //define and execute query
+        $this->logger->Log(date("Y-m-d H:i:s: ") . $sql );
         $result = $conn->query($sql);
 
         return $result;
